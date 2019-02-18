@@ -23,7 +23,18 @@
     <main>
         <div class="container">
             {% block main %}{% endblock %}
+            
+            {% with messages = get_flashed_messages() %} 
+            {% if messages %} 
+            <ul class="flashes"> 
+            {% for message in messages %} 
+                <li>{{ message }}</li>  {% endfor %} 
+            </ul> 
+            {% endif %} 
+            {% endwith %} 
         </div>
+        
+        
     </main>
     <footer>
         <div class="container">
